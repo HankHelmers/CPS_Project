@@ -1,4 +1,1 @@
-% fig = uifigure;
-% im = uimage(fig);
-A = imread('Capture.PNG');
-image(A)
+appdesigner('app1.mlapp')
