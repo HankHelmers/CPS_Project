@@ -1,4 +1,11 @@
+%% Testing the implementation of Spotify API
 % Connecting Application to Spotify API & Making request. 
+
+clear; clc; 
+
+handler = Spotify_Handler('name');
+disp(handler.username);
+
 
 client_id = "28ca2d3814414c08858c196d669a3838"; % Specific Application client id
 redirect_uri = 'http://localhost/';
@@ -17,6 +24,6 @@ auth_url = strcat(auth_url, "&redirect_uri="+redirect_uri);
 auth_url = strcat(auth_url, "&response_type="+response_type);
 
 % retrieve from api
-[stat,h,url] = web(auth_url, '-browser');
-disp(url);
+data = web(auth_url, '-browser');
+
 %http://localhost/?code=AQCzCu4w_egGRDoHhYSEai1_lVIm2amdEeuw0zyDKiVVy8PDvkDSJ7AMqG-0ii_dgn0GhGkfd3p3F_g2uvq_TZWh72mMWCpn6cPlxOtrzv7lKRyqMVhQVOSUI7lvZWQdrcYMy0O0fLuWNMzyVjoBd37_TGwj

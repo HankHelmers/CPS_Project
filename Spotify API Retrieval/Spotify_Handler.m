@@ -15,7 +15,7 @@ classdef Spotify_Handler
         function obj = Spotify_Handler(usernameInput)
              obj.username = usernameInput; 
              % retrieve info from spotify
-             
+             Spotify_Request_Test; 
              
         end
             
