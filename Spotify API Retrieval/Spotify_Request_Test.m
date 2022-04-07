@@ -25,9 +25,9 @@ import spotify.client.*;
     auth_url = strcat(auth_url, "&redirect_uri="+redirect_uri);
     auth_url = strcat(auth_url, "&response_type="+response_type);
     
-    data = clipboard('copy',web(auth_url));
+    data = web(auth_url);
 
-    r = RequestMessage;
+    %r = RequestMessage;
     %resp = send(r,'https://hankhelmers.github.io/CPS_Project/?code=AQDkK3AcQqCnoiV37f1Ied1DjOyEINjnzKB1HA-JO7c0HIyYL2VR0PGrbawMQiKkuquXUl7UlI19VaEvDp2jzxsOF_scEItkktas0voMUgc4p2q1W8i0Kx4a_i3KB0dB6AtRO_ruQWXCVto_9ZQLn_bqJ7soiGsYN_3rLO6nheky5_VREMdzi9IVlzQg0A');
     %disp(resp.url)
   
