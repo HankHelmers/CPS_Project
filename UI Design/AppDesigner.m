@@ -1,1 +1,2 @@
-appdesigner('app1.mlapp')
+%appdesigner('app1.mlapp')
+showfigs(app1, EmotionSelectionUI);
