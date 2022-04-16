@@ -30,6 +30,7 @@ classdef Spotify_Handler
         function set_Auth_Code(new_Post_Auth_Url)
             post_auth_url = new_Post_Auth_Url;
             obj.auth_code = Spotify_Authorization.Parse_Post_Auth_Url(post_auth_url);
+            disp(obj.auth_code)
         end 
     end
 end

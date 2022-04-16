@@ -17,7 +17,7 @@ classdef Spotify_Authorization
            
             client_id = "28ca2d3814414c08858c196d669a3838"; % Specific Application client id
             redirect_uri = 'https://hankhelmers.github.io/CPS_Project/';
-            scope = 'user-read-private user-read-email';
+            scope = 'playlist-read-private user-read-private user-read-email';
             response_type = 'code';                          % create URI obj
             
             % Authorization url
