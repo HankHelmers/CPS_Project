@@ -1,3 +1,8 @@
+% FAILED ATTEMPT AT IMPLEMENTING THE FINAL STEP OF THE SPOTIFY
+% AUTHORIZATION API.
+% Because MATLAB doesn't support the data formatting that we need to send
+% to Spotify to get a response this code is practicially useless.
+
 %https://hankhelmers.github.io/CPS_Project/?code=
 % access test url
 
@@ -8,6 +13,7 @@ import matlab.net.base64encode;
 
 % Retrieved from copy & paste
 auth_code = 'AQBVsxV83soIar44JtfkHI18K8CYtSP3to2pSALzhPXWcaDaCxwL3l3ALkFhlV4YB-Khq-SZ3AKNycV1FKBUf8EgLNd4Ut6PdcOexwKD8EivpDWIOtbl2lVhcrGq7dA0LGFsIepTZHFXt3X2KBuXzA-Cu32wW87xbWvtYwyQtb9whi3gHMe1qeoJZkdapQ';
+
 %GET ACCESS TOKEN FROM CODE
 redirect_uri = 'https://hankhelmers.github.io/CPS_Project/';
 token_url = 'https://api.spotify.com/v1/api/token/';
