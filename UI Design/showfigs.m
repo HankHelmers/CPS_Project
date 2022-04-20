@@ -1,4 +1,4 @@
-function showfigs()
+function showfigs(~,~)
 %
 % The function showfigs() generates a "slide show" of all open figures,
 % bringing each open figure to the fore in turn and then pausing until the
