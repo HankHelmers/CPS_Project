@@ -23,8 +23,8 @@ classdef SpotifyHandler
         % Getters & Setters
         function authCode=setAuthCode(newPostAuthUrl)
             obj.authCode = SpotifyAuthorization.ParsePostAuthUrl(newPostAuthUrl);
-            authCode = obj.auth_code;
-            %disp(obj.auth_code)
+            authCode = obj.authCode;
+            %disp(obj.authCode)
         end 
     end
 end

@@ -46,6 +46,9 @@ def getTokenRequest(auth_code):
         print(auth_response_data);
         return "ERROR"
 
+getTokenRequest('AQCz6_vhfCK-Jk3EQLe32taHARjfXcr06_Xtj_VO_d5ffpizIHe0ur_mvi6iYvDpopBuRnMKLCM-MEVtVSKFSvUyexn2EJ737gZUamY7lTKxroByWCuHZwfpYTkYYUo_s7mW7yuEYyi1wOqrBXauGheZQDeXBAdd0MRYlO0WdrrHGhe9X4UbIgdAqR003g')
+
+
 def getUserId():
     tokenData = getTokenRequest(auth_code)
     
