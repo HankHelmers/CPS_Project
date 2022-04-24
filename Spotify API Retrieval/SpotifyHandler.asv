@@ -8,6 +8,8 @@ classdef SpotifyHandler
     properties 
         authCode;
         data; 
+
+        retrievedData = false;
     end
     
     methods (Access = public)   
@@ -30,18 +32,13 @@ classdef SpotifyHandler
 
         function setData(inputtedData) 
             obj.data = inputtedData;
-            SpotifyHandler.plotEnergyValence(obj.data);
+            disp(obj.data)
+            obj.retrievedData = true;
+            disp(obj.retrievedData)
         end
 
-        function plotEnergyValence(data)
-            disp(data)
-            valence = data.valence;
-            energy = data.energy;
-
-            disp(valence)
-            disp(energy)
-
-            %plot(energy,valence)
+        function plotEnergyValence()
+            if(obj.retrievedData == true) 
         end
     end
 end
