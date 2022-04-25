@@ -35,13 +35,46 @@ classdef SpotifyHandler
 
         function plotEnergyValence(data)
             disp(data)
-            valence = data.valence;
-            energy = data.energy;
+            
+            valence = SpotifyHandler.normToRange(data.valence)
+            energy = SpotifyHandler.normToRange(data.energy)
 
-            disp(valence)
-            disp(energy)
+            labels = data.name + ", " + data.artist;
+            
+            plot(valence,energy,'o')
+            xlabel('valence')
+            ylabel('energy')
+            grid('on')
+            labelpoints(valence,energy,labels)
+        end
 
-            %plot(energy,valence)
+        function getHappySongs(data) 
+            data.valence = SpotifyHandler.normToRange(data.valence);
+            data.energy = SpotifyHandler.normToRange(data.energy);
+
+            sortedDataByValence = sortrows(data, {'valence', 'energy'}, 'descend')
+            
+            cnt = 0;
+            for i = 1:height(data)
+                if(data.valence(i) > 0) 
+                    cnt = cnt + 1;
+                end
+            end
+
+            disp(cnt)
+            
+            % valenceGreaterThanZero = sortedDataByValence(1:cnt, :);
+            % valenceZeroSortedByEnergy = sortrows(valenceGreaterThanZero, {'energy', 'valence'}, 'descend');
+
+            disp(valenceZeroSortedByEnergy)
+        end
+
+        function new_data=normToRange(data) 
+            old_min = 0;
+            old_max = 1;
+            new_min = -1;
+            new_max = 1;
+            new_data = ( (data - old_min)./(old_max - old_min) ).* (new_max - new_min) + new_min;
         end
     end
 end

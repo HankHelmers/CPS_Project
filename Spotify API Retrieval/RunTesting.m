@@ -2,7 +2,12 @@
 % THE PROGRAM.
 % WILL BE DELETED AND UNNESSESSARY FOR THE FILE PRODUCT. 
 
+[file,path] = uigetfile('*.csv')  %open a mat file
+filename = fullfile(path, file)
+data = readtable(filename);
+%SpotifyHandler.plotEnergyValence(data);
 
+SpotifyHandler.getHappySongs(data);
 
 %B = afterEach(A,fcn,n) 
 %SpotifyAuthorization.RequestAuthInAPI();
