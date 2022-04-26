@@ -5,18 +5,20 @@
 % the UI, where the UI can draw the information necessary from this class 
 % to populate the visuals for the user. 
 classdef SpotifyHandler 
-    properties 
-        authCode;
+    properties  
         data; 
     end
     
     methods (Access = public)   
-        function obj = SpotifyHandler()
+        function obj = SpotifyHandler(inputData)
+            inputData.valence = SpotifyHandler.normToRange(inputData.valence, 0, 1, -1, 1);
+            inputData.energy = SpotifyHandler.normToRange(inputData.energy, 0, 1, -1, 1);
+            
+            obj.data = inputData;
         end
     end
 
-    % Methods Accessible from all SpotifyHandler 
-    methods (Static) 
+    methods (Access = public) 
 %         function RequestAuthentication()
 %             SpotifyAuthorization.RequestAuthInAPI(); 
 %         end
@@ -28,35 +30,50 @@ classdef SpotifyHandler
 %             %disp(obj.authCode)
 %         end 
 
-        function plotEnergyValence(data)
-            labels = data.name + ", " + data.artist;
-            
-            plot(data.valence, data.energy,'o')
-            xlabel('valence')
-            ylabel('energy')
-            grid('on')
-            labelpoints(data.valence, data.energy,labels)
+        function plotEnergyValence()
+            disp(SpotifyHandler.data)l
+            data = SpotifyHandler.data
+
+            disp(data);                                              
+
+%             labels = data.name + ", " + data.artist;
+%             
+%             plot(valence,energy,'o')
+%             xlabel('valence')
+%             ylabel('energy')
+%             grid('on')
+%             labelpoints(valence,energy,labels)
         end
 
-        function getHappySongs(data)   
+        function getHappySongs() 
+            data = SpotifyHandler().data;
+
+            data.valence = SpotifyHandler.normToRange(data.valence, 0, 1, -1, 1);
+            data.energy = SpotifyHandler.normToRange(data.energy, 0, 1, -1, 1);
+            
             % calculate average between valence & energy values
             data.ValenceEnergyAverage = (data.valence + data.energy)./2;
             data = sortrows(data, 'ValenceEnergyAverage', 'descend');
             
-            SpotifyHandler.plotEnergyValence(data);
+            SpotifyHandler.plotEnergyValence();
             
             % valenceZeroSortedByEnergy = sortrows(valenceGreaterThanZero, {'energy', 'valence'}, 'descend');
             
             disp(data(1:10,["name", "artist", 'ValenceEnergyAverage']))
         end
 
-        function getSadSongs(data) 
+        function getSadSongs() 
+            data = SpotifyHandler.data;
+
+            data.valence = SpotifyHandler.normToRange(data.valence, 0, 1, -1, 1);
+            data.energy = SpotifyHandler.normToRange(data.energy, 0, 1, -1, 1);
+            
             % calculate average between valence & energy values, sort -1 ->
             % 1
             data.ValenceEnergyAverage = (data.valence + data.energy)./2;
             data = sortrows(data, 'ValenceEnergyAverage', 'ascend');
             
-            SpotifyHandler.plotEnergyValence(data)
+            SpotifyHandler.plotEnergyValence()
                         
             disp(data(1:10,["name", "artist", 'ValenceEnergyAverage']))
         end
