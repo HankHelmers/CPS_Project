@@ -5,10 +5,18 @@
 [file,path] = uigetfile('*.csv');  %open a mat file
 filename = fullfile(path, file);
 data = readtable(filename);
+% Data Processing 
 data.valence = SpotifyHandler.normToRange(data.valence, 0, 1, -1, 1);
 data.energy = SpotifyHandler.normToRange(data.energy, 0, 1, -1, 1);
 
+% ------ Recommendations
+
 SpotifyHandler.plotEnergyValence(data);
+
+SpotifyHandler.getCalmSongs(data);     % Relaxed
+SpotifyHandler.getHappySongs(data);    % 
+SpotifyHandler.getSadSongs(data);      % Sad
+SpotifyHandler.getHypeSongs(data);     % Energetic
 
 % handle if they don't input the correct file ***8
 
@@ -17,4 +25,4 @@ SpotifyHandler.plotEnergyValence(data);
 % 
 % disp('Low Energy & Low Valence')
 % SpotifyHandler.getSadSongs();
-% 
+
