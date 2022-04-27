@@ -1,20 +1,14 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<script type="text/javascript">
-			
-			document.getElementById("dataDisplay").src = "testAudio.wav";
-
-			// function setup(htmlComponent) {
-			// 	htmlComponent.addEventListener("DataChanged", function(event) {
-			// 	document.getElementById("dataDisplay").src = htmlComponent.Data;
-			// 	});     
-			// }
-			
-		</script>
-	</head>
-	<body>
-
-		<audio id="dataDisplay" controls style="padding-left:20px" src=""></audio>
+	<body style="background-color:white;font-family:arial;">
+		<p style="padding-left:20px">
+		Play audio file:
+		</p>
+		
+		<audio controls style="padding-left:20px">
+			<source src="./test.mp3" type="audio/wav">
+			Your browser does not support the audio tag.
+		</audio>
+		
 	</body>
 </html>
