@@ -5,24 +5,26 @@
 [file,path] = uigetfile('*.csv');  %open a mat file
 filename = fullfile(path, file);
 data = readtable(filename);
+
+exists = any(strcmp('valence', data.Properties.VariableNames))
+
+if(exists == 0)
+    disp('incorrect file type')
+end
+
 % Data Processing 
-data.valence = SpotifyHandler.normToRange(data.valence, 0, 1, -1, 1);
-data.energy = SpotifyHandler.normToRange(data.energy, 0, 1, -1, 1);
+data.valence = DataHandler.normToRange(data.valence, 0, 1, -1, 1);
+data.energy = DataHandler.normToRange(data.energy, 0, 1, -1, 1);
 
 % ------ Recommendations
 
-SpotifyHandler.plotEnergyValence(data);
+DataHandler.plotEnergyValence(data);
 
-SpotifyHandler.getCalmSongs(data);     % Relaxed
-SpotifyHandler.getHappySongs(data);    % 
-SpotifyHandler.getSadSongs(data);      % Sad
-SpotifyHandler.getHypeSongs(data);     % Energetic
+relaxedSongs = DataHandler.getRelaxedSongs(data);     % Relaxed
+happySongs = DataHandler.getHappySongs(data);         % Happy
+sadSongs = DataHandler.getSadSongs(data);             % Sad
+dynamicSongs = DataHandler.getDynamicSongs(data);     % Dynamic
 
 % handle if they don't input the correct file ***8
 
-% disp('High Energy & High Valence')
-% SpotifyHandler.getHappySongs();
-% 
-% disp('Low Energy & Low Valence')
-% SpotifyHandler.getSadSongs();
 
