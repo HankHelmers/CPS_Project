@@ -18,7 +18,7 @@ data.energy = DataHandler.normToRange(data.energy, 0, 1, -1, 1);
 
 % ------ Recommendations
 
-DataHandler.plotEnergyValence(data);
+% DataHandler.plotEnergyValence(data);
 
 relaxedSongs = DataHandler.getRelaxedSongs(data);     % Relaxed
 happySongs = DataHandler.getHappySongs(data);         % Happy
